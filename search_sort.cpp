@@ -88,11 +88,47 @@ void sort( int* arr, int n){
         }
     }
 }
+int** createData(int n){
+    //random
+    int** data=new int*[3];
+    data[0]= new int[n];
+    for(int i=0; i<n; i++){
+        data[0][i]=rand() % 10*n;
+    }
+
+    //sorted
+    data[1]= new int[n];
+    for(int i=0; i<n; i++){
+        data[1][i]=data[0][i];
+    }
+    quickSort(data[1],0,n-1);
+
+    //reversed
+    data[2]= new int[n];
+    for(int i=0; i<n; i++){
+        data[2][i]=data[1][n-1-i];
+    }
+
+    return data;
+}
 void process(){
     int Size_set[]={1000,3000,10000,30000,100000};
     string state_set[]={"sorted","reversed","random"};
     for(int size=0; size<5; size++){
+        int** data=createData(Size_set[size]);
+        for(int state=0; state<3; state++){
+            if(state_set[state]=="sorted"){
 
+            }
+
+            if(state_set[state]=="reversed"){
+
+            }
+
+            if(state_set[state]=="random"){
+
+            }
+        }
     }
 }
 int main(){
